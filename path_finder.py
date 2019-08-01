@@ -92,12 +92,12 @@ class MazePathFinder(object):
                                 cur_col = record[row][col][1]
                                 path.append((cur_row, cur_col))
 
-                        print path_queue
-                        print path
+                        print(path_queue)
+                        print(path)
 
                         return path
                 else:
-                        print 'no path find'
+                        print('no path find')
                         return []
 
 if __name__ == '__main__':
@@ -113,9 +113,9 @@ if __name__ == '__main__':
         path_queue = path_finder.bfs_find_path()
         
         for i in range(len(maze)):
-                print maze[i]
+                print(maze[i])
 
-        print path_queue
+        print(path_queue)
 
         
 

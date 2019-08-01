@@ -3,8 +3,6 @@ from random_maze import RandomMaze
 from path_finder import MazePathFinder
 
 import pygame
-from pygame.locals import *
-from sys import exit
 import sys
 
 pygame.init()
@@ -25,7 +23,7 @@ ran_maze = RandomMaze(width//grid_size, height//grid_size)
 cell_row_num = (height//grid_size - 3) // 2
 cell_col_num = (width//grid_size - 3) // 2
 
-def get_maze_method(option):
+def get_maze_method(option): # 선택 값에 따른 알고리즘으로 미로 제작
         if option == 1:
             return ran_maze.dfs_maze
         elif option == 2:
@@ -55,13 +53,13 @@ def main(maze_method, speed=0.010, mode=0):
         grid_view = GridView(screen, width, height, grid_size, grid_line_color) 
         while True:
                 for event in pygame.event.get():
-                        if event.type == QUIT:
+                        if event.type == pygame.QUIT:
                                 exit()
 
                 press_key = pygame.key.get_pressed()
                 
                 # press F5 to regenerate the maze
-                if press_key[K_F5]:
+                if press_key[pygame.K_F5]:
                         index = 0
                         path_index = 0
                         maze, cell_list = maze_method()
@@ -109,9 +107,9 @@ def main(maze_method, speed=0.010, mode=0):
                         if index + 1 < len(cell_list):
                                 index += 1
 
-                pygame.display.update()
+                pygame.display.flip()
 
-def parser_arg(argv):
+'''def parser_arg(argv):
         """
         parser the arguments,
         python main.py [OPTION]:
@@ -138,11 +136,15 @@ def parser_arg(argv):
                 print "(python) main.py [OPTION]: \n" + \
                 "  -d --dfs: use dfs algorithm to generate the maze(default option)\n" +\
                 "  -k --kruscal: use kruscal algorithm to generate the maze "
-                return 0
-
+                return 0'''
 
 if __name__ == '__main__':
-        method = get_maze_method(parser_arg(sys.argv))
+        DFS = 1
+        Kruskal = 2
+
+        method = get_maze_method(DFS) # 미로를 제작할 알고리즘 선택
+
         if method:
-            main(maze_method = get_maze_method(parser_arg(sys.argv)), mode = 1)
-                                        
+            main(maze_method = method,mode = 1)
+        else:
+                print("미로를 제작할 값이 올바르지 않습니다.")
