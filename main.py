@@ -13,9 +13,9 @@ width = 984
 height = 504
 grid_size = 24
 
-cell_color = (230, 230, 100)
+background_color = (230, 230, 100)
 grid_line_color = (0, 0, 0)
-back_ground = (50, 50, 255)
+cell_color = (50, 50, 255)
 path_color = (255, 50, 50)
 
 resolution = (width, height)
