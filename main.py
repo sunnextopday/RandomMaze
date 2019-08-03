@@ -125,22 +125,22 @@ def parser_arg(argv):
     if len(args) == 0:
         return 1
     elif len(args) > 1:
-        print 'Error option'
-        print 'Usage:'
-        print "(python) main.py [OPTION]: \n" + \
+        print ('Error option')
+        print ('Usage:')
+        print ("(python) main.py [OPTION]: \n" + \
               "  -d --dfs: use dfs algorithm to generate the maze(default option)\n" + \
-              "  -k --kruscal: use kruscal algorithm to generate the maze "
+              "  -k --kruscal: use kruscal algorithm to generate the maze ")
         return 0
     elif args[0] == '-d' or args[0] == '--dfs':
         return 1
     elif args[0] == '-k' or args[0] == '--kruscal':
         return 2
     else:
-        print 'Error option'
-        print 'Usage:'
-        print "(python) main.py [OPTION]: \n" + \
+        print ('Error option')
+        print ('Usage:')
+        print ("(python) main.py [OPTION]: \n" + \
               "  -d --dfs: use dfs algorithm to generate the maze(default option)\n" + \
-              "  -k --kruscal: use kruscal algorithm to generate the maze "
+              "  -k --kruscal: use kruscal algorithm to generate the maze ")
         return 0
 
 
